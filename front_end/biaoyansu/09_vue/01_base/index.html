@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .active {
+        background: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="app">
+        <div class="">
+            <input type="text" v-model="name">
+            <div v-show="name">你的名字是：{{name}}</div>
+        </div>
+        <div class="">
+            <input type="text" v-model="age">
+            <div v-show="age">你的年龄是：{{age}}</div>
+        </div>
+    </div> -->
+
+    <div id="app">
+      <!-- ************************************** v-for循环语法 ************************************** -->
+      <!-- <ul>
+        <li v-for="food in foodList">{{food.name}}： ￥{{food.discount?food.discount*food.price:food.price}}({{food.discount}}折)</li>
+      </!-->
+
+      <!-- ************************************** v-bind ************************************** -->
+      <!-- <a v-bind:href="url" :class="{active: isActive}">百度("v-bind:"可以简写为 ":")</a> -->
+
+      <!-- ************************************** v-on ************************************** -->
+      <!-- <button v-on:click="onClick">点我("v-on:" 可以简写为 "@")</button>
+      <br>
+      <button v-on="{click:onClick, mouseenter:onEnter, mouseleave:onLeave}">再点我</button>
+      <form @submit.prevent="onSubmit" @keyup.Enter="onEnter"> 
+        <input type="text">
+        <button type="submit">提交</button>
+      </form> -->
+
+      <!-- ************************************** v-model ************************************** -->
+      <!-- <div>
+        <input type="text" v-model.lazy="name">
+        <span>{{name}}</span>
+      </div>
+      <div>
+        <input type="text" v-model.trim="username">
+        <pre>{{username}}</pre>
+      </div>
+      <div>
+        <input type="text" v-model.number="age">
+        <span>{{age}}</span>
+      </div> -->
+
+      <!-- <label>
+        男
+        <input type="radio" v-model="sex1" value="male">
+      </label>
+      <label>
+        女
+        <input type="radio" v-model="sex1" value="female">
+      </label>
+      {{sex1}}
+      <br>
+      <label>
+        男
+        <input type="checkbox" v-model="sex2" value="male">
+      </label>
+      <label>
+        女
+        <input type="checkbox" v-model="sex2" value="female">
+      </label>
+      {{sex2}} -->
+
+      <!-- <textarea v-model="aticle"></textarea>{{aticle}} -->
+
+      <!-- <div>你来自哪里？</div>
+      <select v-model="from">
+        <option value="1">湖南</option>
+        <option value="2">广东</option>
+      </select> 
+      {{from}}
+      <div>你要去哪里？</div>
+      <select v-model="go" multiple>
+        <option value="1">湖南</option>
+        <option value="2">广东</option>
+        <option value="3">河北</option>
+        <option value="4">云南</option>
+        <option value="5">泰国</option>
+      </select> 
+      {{go}} -->
+
+      <!-- ************************************** 控制流指令 ************************************** -->
+      <!-- <div v-if="role == 'admin'">
+        管理员你好
+      </div>
+      <div v-else-if="role == 'hr'">
+        待查看简历<br />
+        ...
+      </div>
+      <div v-else>
+        您没有权限访问此网页
+      </div> -->
+
+      <!-- ************************************** 计算属性 ************************************** -->
+      <!-- <table border="1">
+        <thead>
+          <th>学科</th>
+          <th>分数</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>数学</td>
+            <td>
+              <input type="text" v-model.number="subjects.math" />
+            </td>
+          </tr>
+          <tr>
+            <td>物理</td>
+            <td>
+              <input type="text" v-model.number="subjects.physics" />
+            </td>
+          </tr>
+          <tr>
+            <td>英语</td>
+            <td>
+              <input type="text" v-model.number="subjects.English" />
+            </td>
+          </tr>
+          <tr>
+            <td>总分</td>
+            <td>
+              <input type="text" v-model.number="sum" />
+            </td>
+          </tr>
+          <tr>
+            <td>平均分</td>
+            <td>
+              <input type="text" v-model.number="average" />
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

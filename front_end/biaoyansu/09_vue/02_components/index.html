@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .liked {
+        background: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ************************************** 全局及局部组件 **************************************  -->
+    <!-- <div id="app1">
+        <alert></alert>
+    </div> -->
+
+    <!-- ************************************** 配置组件 **************************************  -->
+    <!-- <div id="app">
+        <like></like>
+    </div>
+    <template id="like-component-tpl">
+            <button @click="toggle_like()" :class="{liked:liked}">赞{{like_count}}</button>
+    </template> -->
+
+    <!-- ************************************** 父子通信 **************************************  -->
+    <!-- <div id="app">
+        <user username="whh"></user>
+    </div> -->
+
+    <!-- ************************************** 子父通信 **************************************  -->
+    <!-- <div id="app">
+        <balance></balance>
+    </div> -->
+
+    <!-- ************************************** 任意及平行组件间通信 **************************************  -->
+    <!-- <div id="app">
+        <huahua></huahua>
+        <shuandan></shuandan>
+    </div> -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
