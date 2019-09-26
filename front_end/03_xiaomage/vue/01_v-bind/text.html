@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li
+          v-for="(m, index) in movies"
+          @click="makeRed(index)"
+          style="cursor: pointer"
+          :class="{red:i===index}"
+        > 
+          {{ index }}-{{ m }}
+        </li>
+        <!-- <li v-for="m in movies">{{ m }}</li> -->
+      </ul>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.js"></script> -->
+
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          movies: ["复仇者联盟", "钢铁侠", "星际穿越", "肖申克的救赎"],
+          i: 2
+        },
+        methods: {
+          makeRed: function(index) {
+            this.i = index;
+          }
+        }
+      });
+    </script>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+  </body>
+</html>

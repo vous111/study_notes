@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn :number1="num1"
+         :number2="num2"
+         @num1_change="num1_change"
+         @num2_change="num2_change"/>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h1>father1:{{number1}}</h1>
+      <h2>son1:{{cpn_number1}}</h2>
+      <!-- <input type="number" :value="cpn_number1" @input="cpn_number1_input"> -->
+      <input type="number" v-model="cpn_number1">
+      <h1>father2:{{number2}}</h1>
+      <h2>son2:{{cpn_number2}}</h2>
+      <!-- <input type="number" :value="cpn_number2" @input="cpn_number2_input"> -->
+      <input type="number" v-model="cpn_number2">
+      <!-- v-model="cpn_number2" 相当于 :value="cpn_number2" @input="cpn_number2_input" -->
+    </div>
+  </template>
+
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script>
+
+    const cpn = {
+      template:'#cpn',
+      props:{
+        number1:Number,
+        number2:Number,
+        name:''
+      },
+      data(){
+        return{
+          cpn_number1 : this.number1,
+          cpn_number2 : this.number2,
+        }
+      },
+      methods:{
+        cpn_number1_input(event){
+          // 1.将input中的value赋值到cpn_number1中
+          this.cpn_number1 = event.target.value
+          // 2.为了让父组件可以修改值，发送一个事件给父组件
+          this.$emit('num1_change', this.cpn_number1)
+          // 3.同时修饰cpn_number2的值
+          this.cpn_number2 = this.cpn_number1*10
+          this.$emit('num2_change', this.cpn_number2)
+        },
+        cpn_number2_input(event){
+          this.cpn_number2 = event.target.value
+          this.$emit('num2_change', this.cpn_number2)
+          this.cpn_number1 = this.cpn_number2/10
+          this.$emit('num1_change', this.cpn_number1)
+        },
+      },
+      // watch属性用于监听data属性的改变
+      watch:{
+        cpn_number1(newValue, oldValue){
+          // this.cpn_number2 = this.cpn_number1*10
+          this.cpn_number2 = newValue*10
+          this.$emit('num1_change', newValue)
+        },
+        cpn_number2(newValue, oldValue){
+          // this.cpn_number1 = this.cpn_number2/10
+          this.cpn_number1 = newValue/10
+          this.$emit('num2_change', newValue)
+        },
+      }
+    }
+
+    const app = new Vue({
+      el:'#app',
+      data:{
+        num1:1,
+        num2:10
+      },
+      components:{
+        cpn
+      },
+      methods:{
+        num1_change(value){
+          this.num1 = parseFloat(value)
+          this.num2 = this.num1 * 10
+        },
+        num2_change(value){
+          this.num2 = parseFloat(value)
+        },
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn :cinfo="info" :c-info="info"></cpn>
+    <!-- <cpn :cInfo="info"></cpn> -->
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>{{cinfo}}</h2>
+      <h2>{{cInfo}}</h2>
+    </div>
+  </template>
+
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script>
+    const cpn ={
+      template:"#cpn",
+      props:{
+        cinfo:{
+          type:Object,
+          default(){
+            return {}
+          }
+        },
+        cInfo:{
+          type:Object,
+          default(){
+            return {}
+          }
+        }
+      }
+    }
+
+    const app = new Vue({
+      el:'#app',
+      data:{
+        info:{
+         name:"海王" ,
+         age:120,
+         sex:"male"
+        },
+      },
+      components:{
+        cpn
+      }
+    })
+  </script>
+</body>
+</html>
+

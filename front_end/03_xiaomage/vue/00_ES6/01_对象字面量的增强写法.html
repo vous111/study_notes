@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>   
+  <body>
+    <script>
+      // 1. 属性的增强写法
+      const name = "me";
+      const age = 18;
+      // ES5的写法
+      const ES5 = {
+        name: name,
+        age: age
+      };
+      // ES6的写法
+      const ES6 = {
+        name,
+        age
+      };
+
+      // 2. 函数的增强写法
+      // ES5的写法
+      const func5 = {
+        run: function() {}
+      };
+      // ES6的写法
+      const func6 = {
+        run() {}
+      };
+    </script>
+  </body>
+</html>

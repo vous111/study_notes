@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>书籍购物车</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="books.length">
+        <table>
+            <thead>
+              <tr>
+                  <th></th>
+                  <th>书籍名称</th>
+                  <th>出版日期</th>
+                  <th>价格</th>
+                  <th>购买数量</th>
+                  <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in books">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date}}</td>
+                <!-- <td>￥{{item.price.toFixed(2)}}</td> -->
+                <td>{{item.price | showPrice}}</td>
+                <td>
+                  <button @click="decreaseCount(index)" :disabled="item.count <= 1">-</button>
+                  {{item.count}}
+                  <button @click="increaseCount(index)">+</button>
+                </td>
+                <td>
+                  <button @click="removeHandle(index)">移除</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <span>总价格:{{totalPrice | showPrice}}</span>
+    </div>
+    <div v-else>
+        <h2>购物车为空</h2>
+    </div>
+
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

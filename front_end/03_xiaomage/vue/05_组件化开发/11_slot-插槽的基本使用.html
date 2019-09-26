@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn><button>按钮</button></cpn>
+			<cpn><i>呵呵</i></cpn>
+			<cpn><p>haha</p></cpn>
+			<cpn></cpn>
+		</div>
+
+		<template id="cpn">
+			<div>
+				<h3>slot的基本使用</h3>
+				<slot><button>我是slot默认值</button></slot>
+			</div>
+		</template>
+		<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {},
+				components: {
+					cpn: {
+						template: "#cpn"
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

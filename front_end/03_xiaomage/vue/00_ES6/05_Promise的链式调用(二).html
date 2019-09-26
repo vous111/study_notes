@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		resolve("a:");
+			// 	}, 1000);
+			// })
+			// 	.then(data => {
+			// 		console.log(data, "第一层调用");
+			// 		return new Promise(resolve => {
+			// 			resolve(data + "b:");
+			// 		});
+			// 	})
+			// 	.then(data => {
+			// 		console.log(data, "第二层调用");
+			// 	});
+
+			new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve("a:");
+				}, 1000);
+			})
+				.then(data => {
+					console.log(data, "第一层调用");
+					// 简写，当Promise中没有回调时可用
+					// return Promise.resolve(data + 'b:')
+
+					// 更简洁,直接return
+					return data + "b:";
+				})
+				.then(data => {
+					console.log(data, "第二层调用");
+				});
+
+			// 有reject的情况
+			new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve("a:");
+				}, 1000);
+			})
+				.then(data => {
+					console.log(data, "第一层调用");
+					// return Promise.reject("error message");
+					// 可以手动抛出异常
+					throw 'error message'
+				})
+				.then(data => {
+					console.log(data, "第二层调用");
+				})
+				.catch(err => {
+					console.log(err);
+				});
+		</script>
+	</body>
+</html>

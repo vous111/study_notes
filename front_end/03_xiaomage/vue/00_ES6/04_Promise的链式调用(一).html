@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//参数 ->函数（resolve，reject）
+			// resolve，reject也是函数
+			new Promise((resolve, reject) => {
+				setTimeout(() => {
+					// 成功调用resolve
+					resolve("hello world --1");
+					// 失败的时候调用reject
+					// reject('error message')
+				}, 1000);
+			})
+				.then(data => {
+					console.log(data);
+					return new Promise((resolve) => {
+						setTimeout(() => {
+							// 成功调用resolve
+							resolve(data + " hello world --2");
+						}, 1000);
+					}).then(data => {
+						console.log(data);
+					});
+				})
+				.catch(err => {
+					console.log(err);
+				});
+			// Promise另一种写法
+			// new Promise((resolve, reject)=>{
+			//   setTimeout(()=>{
+			//     // 成功调用resolve
+			//     // resolve('hello world');
+			//     // 失败的时候调用reject
+			//     reject('error message')
+			//   },1000)
+			// }).then(data=>{
+			//   console.log(data);
+			// },err=>{
+			//   console.log(err)
+			// })
+		</script>
+	</body>
+</html>

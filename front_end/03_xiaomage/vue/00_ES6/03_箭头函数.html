@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.基本使用
+    const ccc = () =>{
+    }  
+
+    // 2.参数问题
+    // 2.1 两个参数
+    const sum = (num1, num2) =>{
+      return num1 + num2;
+    }
+    // 2.2 一个参数
+    const powe = num =>{
+      return num * num;
+    }
+
+    // 3.函数
+    // 3.1函数代码块中多行代码
+    const log = () => {
+      console.log(123);
+      console.log(456);
+    }
+    // 3.2函数代码块中一行代码
+    const mul = (num1, num2)=>console.log(num1*num2);
+    // render:h => h(App)
+    // render:(h) =>{
+    //   return h(App)
+    // }
+
+    // 4.箭头函数中this是如何查找的？
+    // 向外层作用域中，一层层查找this，直到有this的定义
+    const obj = {
+      aaa(){
+        setTimeout(function(){
+          console.log(this); // window
+        }),
+        setTimeout(()=>{
+          console.log(this); // obj
+        }),
+        setTimeout(function(){
+          setTimeout(function(){
+            console.log(this); // window
+          });
+          setTimeout(()=>{
+            console.log(this); // window
+          })
+        })
+      }
+    }
+    obj.aaa()
+  </script>
+</body>
+</html>

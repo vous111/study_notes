@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+      <!-- 获取子组件中的nums -->
+      <template slot-scope="slot">
+        <!-- <span v-for="n in slot.data">{{n}}-</span> -->
+        <span>{{slot.data.join('-')}}</span>
+      </template>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <ul>
+      <slot :data="nums">
+          <li v-for="item in nums">{{item}}</li>
+      </slot>
+    </ul>
+  </template>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{},
+      components:{
+        cpn:{
+          template:'#cpn',
+          data(){
+            return{
+              nums:[1,2,3,4,5,6]
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
