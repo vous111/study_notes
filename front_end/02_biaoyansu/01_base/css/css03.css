@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+p {
+    /* font-family: serif; */
+    /* font-family: "微软雅黑", "Microsoft Yahei", "serif"; */
+    font-family: "宋体";
+    /*粗细程度*/
+    font-weight: 900;
+    /*字体大小 段落中的文字像素一般为12*/
+    /* font-size: 12px; */
+    /*继承母元素的大小*/
+    font-size: inherit;
+
+    /*段落对齐*/
+    text-align: left;
+    /*行高*/
+    /*px:像素， 正数:比例*/
+    line-height: 1;
+    /*文字装饰*/
+    text-decoration: underline;
+    /* 四周填充大小 */
+    padding: 10px;
+}
+
+.block {
+    display: block;
+    background: #ccc;
+    width: 200px;
+}
+
+.inline {
+    display: inline;
+    background: 0;
+}
+
+.inline-block {
+    display: inline-block;
+    background: #ccc;
+    height: 30px;
+}
+
+/* 框（Block Box） */
+/*  margin(外边距)
+    border(边框)
+    padding(内边距)
+    content(内容区) */
+div{
+    background: #ccc;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border: 50px dashed #777;
+    margin: 20px;
+}

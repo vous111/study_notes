@@ -1,0 +1,69 @@
+div {
+    min-height: 50px;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+/* a类向下相邻的一个类 */
+.a+div {
+    background: rgba(255, 0, 0, 0.2)
+}
+
+/* b类向下的所有类 */
+.b~div {
+    background: rgba(0, 255, 0, 0.3)
+}
+
+
+/* 伪类选择器 */
+/* a:hover {} 鼠标悬停在对象时样式
+a:link {} 未访问链接样式
+a:visited {} 已访问链接样式
+button:active {} 按钮点击激活时样式
+input:focus {} 输入框聚焦时样式 */
+
+/* 单冒号和双冒号不要混着使用，单冒号兼容性更强一些 */
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: gray;
+}
+
+button:hover,
+a:hover {
+    background: gray;
+}
+
+input:focus {
+    outline-color: red;
+    color: green;
+    background: gray;
+}
+
+
+/* 伪元素选择器 */
+p:first-letter {
+    font-size: 50px;
+}
+
+.help:before {
+    content: "*";
+    color: red;
+}
+
+.help:after {
+    content: "[?]";
+    color: blue;
+}
+
+/* div下的p */
+div p:first-child {
+    color: blue;
+}
+
+div p:nth-child(2) {
+    color: red
+}
