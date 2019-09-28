@@ -24,7 +24,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .goodsList{
     display: flex;
     flex-wrap: wrap;/* 让弹性盒元素在必要的时候拆行 */

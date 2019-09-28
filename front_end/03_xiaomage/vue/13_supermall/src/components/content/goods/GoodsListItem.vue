@@ -1,6 +1,6 @@
 <template>
     <div class="goods-item">
-      <img :src="goodsItem.show.img" alt="">
+      <img :src="goodsItem.show.img" alt="" @load="imageLoad">
       <div class="goods-info">
         <p>{{goodsItem.title}}</p>
         <span class="price">{{goodsItem.price}}</span>
@@ -18,6 +18,15 @@
           default() {
             return {}
           }
+        }
+      },
+      methods:{
+        imageLoad(){
+          // 原生的js监听图片：img.onload=function(){}
+          // vue中监听：@load="方法"
+          // console.log('haha');
+          // 发射事件总线事件
+          this.$bus.$emit('itemImageLoad')
         }
       }
     }

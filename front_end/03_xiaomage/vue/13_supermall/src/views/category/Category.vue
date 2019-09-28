@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref="aaa">
+  <div class="wrapper"   ref="aaa">
     <ul class="content">
       <li>分类1</li>
       <li>分类2</li>
@@ -106,7 +106,7 @@
 </template>
 
 <script>
-  import BScroll from '@better-scroll/core'
+  import BScroll from 'better-scroll'
 
   export default{
     name:"Category",
@@ -118,15 +118,23 @@
     created(){
       
     },
+    // 组件创建完成后调用
     mounted(){
       this.bscroll = new BScroll(this.$refs.aaa,{
-
+        probeType:3,
+        pullUpLoad:true
+      });
+      this.bscroll.on('scroll',(position)=>{
+        console.log(position);
+      })
+      this.bscroll.on('pullingUp', ()=>{
+        console.log('上拉加载更多');
       })
     }
   }
 </script>
 
-<style>
+<style scoped>
   .wrapper{
     height: 150px;
     background-color: red;
