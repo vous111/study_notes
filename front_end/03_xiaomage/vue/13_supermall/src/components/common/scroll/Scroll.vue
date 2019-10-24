@@ -21,7 +21,7 @@
       pullUpLoad: {
         type: Boolean,
         default: false
-      },
+      }
     },
     data() {
       return {
@@ -34,31 +34,42 @@
       this.scroll = new BScroll(this.$refs.wrapper, {
         click: true, // button不受此约束，但是其他标签受此约束，要想能监听点击需要设置为true
         probeType: this.probeType,
-        pullUpLoad: this.pullUpLoad
+        pullUpLoad: this.pullUpLoad,
+
       });
       // console.log(this.scroll);
       // 2.监听滚动的位置
-      this.scroll.on("scroll", position => {
-        // console.log(position);
-        this.$emit('scroll', position) //发射自定义事件
-      });
+      if (this.probeType === 3 || this.probeType === 2) {
+        this.scroll.on("scroll", position => {
+          // console.log(position);
+          this.$emit("scroll", position); //发射自定义事件
+        });
+      }
 
       // 3.监听上拉事件
-      this.scroll.on('pullingUp', ()=>{
-        this.$emit('pullingUp')
-      })
+      if (this.pullUpLoad) {
+        this.scroll.on("pullingUp", () => {
+          this.$emit("pullingUp");
+        });
+      }
     },
     methods: {
       // this.scroll && 这里使用逻辑与的原因是，可能图片加载完成该组件还未加载
       scrollTo(x, y, time = 500) {
         this.scroll && this.scroll.scrollTo(x, y, time); // 第三个参数为时间
       },
-      finishPullUp(){
-        this.scroll.finishPullUp()
+      finishPullUp() {
+        if (this.pullUpLoad) {
+          this.scroll.finishPullUp();
+        }
       },
-      refresh(){
+      refresh() {
         // console.log('---');
-        this.scroll && this.scroll.refresh()
+        this.scroll && this.scroll.refresh();
+      },
+      getCurrentY(){
+        // console.log(this);
+        return this.scroll.y ? this.scroll.y : 0
       }
     }
   };
