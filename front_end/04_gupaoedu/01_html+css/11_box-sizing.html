@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background: red;
+
+    }
+
+    div{
+      box-sizing: border-box;
+      /* margin: 20px; */
+      border: 5px solid blue;
+      padding: 20px;
+      background: #eee;
+      width: 100px;
+      height: 100px;
+    }
+
+    /* 
+      box-sizing:content-box(默认值)/border-box/inherit
+        content-box:W3c盒模型，宽度和高度分别应用到元素的内容框，在宽度和高度之外绘制元素的内边距和边框。即width不受padding、margin和border影响
+        border-box:怪异盒模型 为元素设定的宽度和高度决定了元素的边框盒。即width = padding+border+内容
+        inherit: 规定应从父元素继承 box-sizing 属性的值。
+     */
+  </style>
+</head>
+<body>
+    <div >234</div>
+    <div >234</div>
+</body>
+</html>

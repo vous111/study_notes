@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p[attr]{
+      background: red;
+    }
+    p[attr="p2"]{
+      background: blue;
+    }
+    p[id="p2"]{
+      background: #000;
+    }
+
+    p[class~="op2"]{
+      background: pink;
+    }
+    p[class^="op"]{
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    IE7及以上支持
+    
+    E[attr~="value"]此属性是一个词列表，用空格隔开，其中词列表中包含了一个value词
+    E[attr^="value"]属性值是以value开头的
+    E[attr$="value"]属性值是以value结尾的
+    E[attr*="value"]属性值中包含了value
+    E[attr|="value"]属性值是以value开头或者以"value-"开头的值(比如说zh-cn)
+
+
+   -->
+  <p id="p1" class="p1" attr="p1">123</p>
+  <p attr="p2">123</p>
+
+  <p class="op2 op22">222</p>
+  <p class="op2 op22">222</p>
+</body>
+</html>

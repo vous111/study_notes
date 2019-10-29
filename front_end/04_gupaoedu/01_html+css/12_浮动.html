@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap{
+      width: 500px;
+      height: 5000px;
+      border: 1px solid #eee;
+    }
+
+    .left{
+      width: 200px;
+      height: 200px;
+      background: blue;
+      float: left;
+    }
+    .right{
+      /* width: 400px; */
+      width: 200px;
+      height: 200px;
+      background: pink;
+      float: right;
+    }
+    .none{
+      width: 400px;
+      height: 200px;
+      background: red;
+      /*清除浮动 让左右两边没有浮动元素，使其独占一行 */
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    文档流：文档中可显示对象在排列时所占用的位置
+    浮动的定义：使元素脱离文档流，按照指定方向发生移动，遇到父级边界或者相邻的浮动元素停下来
+
+    标准盒模型
+      内容宽(高)=width(height)
+      可视宽(高)=内容宽(高)+padding+border
+      文档流宽(高)=内容宽(高)+padding+border+margin
+
+    浮动特点：
+      1.块在一排显示
+      2.内联支持宽高
+      3.默认内容撑开宽高
+      4.脱离文档流：从自己的位置上脱离出来，但没有完全脱离
+      5.提升层级半层：当设置了浮动后，兄弟类会占据它的位置，但是内容区会被挤出来
+   -->
+   <div class="wrap">
+     <div class="left"></div>
+     <div class="right">123</div>
+     <a class="none">123</a> <!-- 此元素会占据left的位置，但内容被挤出left宽度外 -->
+   </div>
+</body>
+</html>

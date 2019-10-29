@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			.wrap {
+				width: 200px;
+				border: 1px solid #111;
+        margin: 200px auto;
+			}
+
+			.left {
+				width: 200px;
+				height: 200px;
+				background: blue;
+        margin-bottom: 10px;
+        float: left;
+			}
+			.right {
+				width: 200px;
+				height: 200px;
+				background: red;
+        margin-top: 30px;
+        float: left;
+			}
+
+      .wrap1{
+        width: 500px;
+        height: 500px;
+        background: red;
+      }
+      .left1{
+        width: 200px;
+				height: 200px;
+				background: blue;
+        margin-top: 20px;
+        float: left;
+      }
+		</style>
+	</head>
+	<body>
+		<!-- 
+    BFC 块级格式化上下文,独立的块级，不会影响margin
+      1.阻止margin的传递
+      2.能够解决margin的合并
+      3.能够包裹浮动元素(子级是浮动，父级相应设置浮动即可包裹)
+    
+    触发条件
+      a.float的值不为none
+      b.overflow的值不为visible
+      c.diaplay的值为table-cell，table-caption，inline-block中的任何一个
+      d.position的值不为relative和static
+      e.width/height/min-width/min-height:(!auto)
+      
+      IE浏览器
+        zoom:任何数字
+   -->
+   <!-- <div class="wrap">
+     <div class="left">这是左边的div</div>
+     <div class="right">这是右边的div</div>
+   </div> -->
+   <div class="wrap1">
+     <div class="left1">这是左边的div</div>
+   </div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      background-image: url('./1.png');
+      background-repeat: no-repeat;
+      height: 1000px;
+      background-attachment: fixed;
+    }
+    h2{
+      width: 100px;
+      height: 100px;
+      /* background-color: red;
+      background-image: url("./2.png");
+      background-position: 0 0;
+      background-repeat: no-repeat; */
+      /* background-attachment: scroll; */
+
+      background-size: cover;
+
+      background: red url("./2.png") no-repeat 0 0 scroll ;
+      /* 
+        1. background-image:小图标，背景花纹
+           img:LOGO
+        2. background-position:x y 背景定位,允许出现负数
+        3. background-repeat 背景是否平铺吗，默认是平铺（不平铺只可显示一张图片）
+        4. background-size:x y 背景的尺寸(如果只有一个值，另一个值auto)
+            cover 缩放至父级的高度，宽度自适应
+            contian 缩放至父级宽度，高度自适应
+        5.background-attachment 背景图片是否滚动，默认是滚动的
+          fixed 固定
+          scroll 滚动
+        6. background: red url("./2.png") no-repeat 0 0 scroll
+            整合写用空格分开，顺序可以打乱
+       */
+    }
+  </style>
+</head>
+<body>
+  <h2></h2>
+</body>
+</html>

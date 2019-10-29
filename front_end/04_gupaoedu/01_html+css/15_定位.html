@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			.relative div {
+        width: 100px;
+        height: 100px;
+			}
+      .relative .div1{
+        background-color: blue;
+      }
+      .relative .div2{
+        background-color: red;
+        position: relative;
+        left: 100px;
+        top:100px
+      } 
+      .relative .div3{
+        background-color: green;
+      }
+
+
+			.absulote {
+				width: 500px;
+				height: 500px;
+				background: red;
+				margin: 200px;
+				position: relative;
+			}
+			.absulote .left {
+				width: 200px;
+				height: 200px;
+				background: blue;
+				position: absulote;
+				left: 30px;
+				top: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+    相对定位
+      position:relative
+        1.不影响元素本身的特性
+        2.不使元素脱离文档流(元素移动之后原始位置会被保留)
+        3.如果没有定位偏移量，对元素本身没有影响
+        4.提升层级
+
+        参照物是元素初始位置本身
+    -->
+
+    <div class="relative">
+      <div class="div1">1</div>
+      <div class="div2">我是相对定位，我原来的位置在上面</div>
+      <div class="div3">3</div>
+      <div>4</div>
+    </div>
+
+		<!-- 
+    绝对定位
+      position:absolute
+        1.使元素完全脱离文档流
+        2.使内嵌支持宽高
+        3.块属性标签内容撑开宽度
+        4.如果有定位父级相对于定位父级发生偏移，没有定位父级相对于document(body)发生偏移
+        5.相对定位一般都是配合绝对定位元素使用
+        6.提升层级
+    
+    浮动元素只提升层架半层
+    绝对定位元素提升层级1层
+    
+    绝对定位的定位偏移的参照物：
+      1.离他最近的
+      2.有定位属性的(相对，绝对)，相对定位一般当做绝对定位的父级
+      3.以body为参照物
+
+    
+    给元素设置为定位以后，如果没有设置z-index值
+      元素身上默认有值(0-1之间)
+      后面的元素会覆盖前面的元素
+      z-index值越大越在上层
+
+      a.定位元素默认后者层级高于前者
+      b.建议在兄弟标签之间比较层级
+   -->
+		<!-- <div class="absulote">
+			<div class="left">
+				绝对定位
+			</div>
+    </div> -->
+    
+
+    <!-- 
+      固定定位
+        position:fixed
+        与绝对定位的特性基本一致，差别是始终相对整个文档进行定位
+        问题：IE6不支持固定定位
+      
+      思考：如何用绝对定位模拟固定定位？
+
+      
+      
+      position:static 默认值
+      position:inherit 从父元素继承定位属性的值(不兼容)
+
+     -->
+
+	</body>
+</html>

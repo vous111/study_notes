@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 500px;
+      height: 500px;
+      border:1px solid #000;
+      padding: 50px;
+    }
+    #box #in{
+      width: 100px;
+      height: 100px;
+      background:red;
+      transition:1s;
+      transform-origin:left top;
+      /* transform-origin:150px 150px; */
+    }
+    #box :hover#in{
+      /* transform: rotate(95deg);  */
+      /* transform: skew(45deg);  */
+      /* transform: scale(.5);  */
+      transform: translate(100px, 100px); 
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    transform
+      Transform-orign：变幻基点
+        默认是围绕自身中心点旋转，
+        可以围绕某边旋转 bottom top left right
+        可以围绕某点旋转  left top 20px 20px
+        可以围绕元素之外的某个点旋转 150px 150px
+
+      rotate() 旋转函数 取值:度数
+        deg 度数
+
+      skew() 倾斜函数 取值:度数
+        skewX()
+        skewY()
+      
+      scale() 缩放函数 取值:正数、负数(先缩小再放大)和小数
+
+      translate() 位移函数
+        translateX()
+        translateY()
+   -->
+  <div id="box">
+    <div id="in"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			#box {
+				width: 500px;
+				height: 500px;
+				border: 1px solid #000;
+				padding: 200px;
+                transform-style: preserve-3d;
+                perspective: 1000px;
+			}
+			#box #in {
+				width: 100px;
+				height: 100px;
+				background: red;
+				transition: 1s;
+				/* transform-origin: left top; */
+				/* transform-origin:150px 150px; */
+			}
+			#in:hover {
+                /* transform: rotateX(75deg) rotateY(75deg) rotateZ(75deg); */
+                /* transform:rotate3d(1,1,1, 75deg); */
+                /* transform: translate3d(10px, 10px, 10px); */
+                /* transform:translateZ(500px); */
+                /* transform:scaleZ(5) translateZ(-100px) */
+                /* transform:scale3d(2,2,2); */
+
+                
+			}
+		</style>
+	</head>
+	<body>
+        <!-- 
+            transform-style:preserve-3d 建立3d空间
+            perspective:1000px  景深
+            perspective-origin  景深基点
+
+            transform新增函数
+                totateX()
+                totateY()
+                totateZ()
+                translateZ()
+                scaleZ()
+
+                scaleZ和translateZ单独使用没有任何效果
+                所以transform:scaleZ(5) translateZ(-100px) 和transform:translate(-500px)是等价的
+
+
+         -->
+
+		<div id="box">
+			<div id="in"></div>
+		</div>
+	</body>
+</html>

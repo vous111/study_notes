@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap1{
+      width: 500px;
+      height: 5000px;
+      border: 1px solid #eee;
+    }
+
+    .left{
+      width: 200px;
+      height: 200px;
+      background: blue;
+      float: left;
+    }
+    .right{
+      /* width: 400px; */
+      width: 200px;
+      height: 200px;
+      background: pink;
+      float: right;
+    }
+    .none{
+      width: 400px;
+      height: 200px;
+      background: red;
+      /*清除浮动 让左右两边没有浮动元素，使其独占一行 */
+      clear: both;
+    }
+
+    .wrap2{
+      width: 500px;
+      border: 1px solid red;
+      /* 1.加高 */
+      /* height: 200px; */
+
+      /* 2.父级浮动 */
+      /* float:left; */
+      /* margin:200px auto; */
+
+      /* 3.inline-block */
+      /* display: inline-block; */
+
+      /* overflow:hidden */
+      /* overflow:hidden */
+    }
+
+    .div1{
+      /* 4.空标签 */
+      clear: both;
+    }
+    .left2{
+      width: 200px;
+      height: 200px;
+      background: blue;
+      float: left;
+    } 
+    p{
+      margin: 0;
+      padding: 0;
+      background: red;
+    }
+
+    /* 伪类清除浮动 */
+    .clear:after{
+      content: "";
+      display: block;
+      clear:both
+    }
+    .clear{
+      zoom:1
+      /* a. 触发IE下haslayout，使元素根据自身内容计算宽高
+         b. FF不支持 */
+    }
+  </style>
+</head>
+<body>
+     <!-- 
+     clear:both 
+
+     clear清除浮动使用起来有限制限制：
+      1.只能消除元素本身的左侧或者右侧没有浮动元素
+      2.只对块元素有效
+    -->
+   <!-- <div class="wrap1">
+     <div class="left"></div>
+     <div class="right"></div>
+     <a class="none">22</a> 
+     <div class="none">111</div> 
+   </div> -->
+
+
+  <!-- 
+
+    1.加高：扩展性不好
+    2.父级浮动：页面中所有元素都加浮动，margin左右auto失效
+    3.inline-block：margin左右auto失效
+    4.空标签清浮动：在ie6下有最小高度19px问题，而且页面上会出现很多空标签
+    5.br清浮动：不符合工作中，结构、样式、行为 三者分离的要求
+    6.overflow:hidden ：需要给父级设置宽度
+
+    7.主流清除浮动方法:after伪类
+      因为IE6、IE7不兼容，需要使用zoom缩放
+   -->
+   <div class="wrap2 clear">
+      <div class="left2"></div>
+      <!-- <div>123</div> -->
+      <!-- <div class="div1"></div> -->
+    </div>
+    <!-- <p>p元素</p> -->
+</body>
+</html>

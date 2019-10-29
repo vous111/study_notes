@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			table {
+				/*单元格边框合并*/
+				border-collapse: collapse;
+				width: 500px;
+				/* border:1px solid red; */
+			}
+
+			td {
+				height: 100px;
+				text-align: center;
+				/* border:1px solid red; */
+			}
+			th,
+			td {
+				padding: 0;
+				font-weight: normal;
+			}
+
+			/* table-cell与disable：table结合使用可以实现文字的水平垂直居中 */
+			#box {
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				text-align: center; /*水平居中*/
+				display: table;
+			}
+			#div1 {
+				display: table-cell;
+				vertical-align: middle; /*垂直居中*/
+			}
+
+			/* 等高布局 */
+			.wrap {
+				width: 200px;
+				display: table;
+			}
+			.wrap div {
+				display: table-cell;
+				border: 1px solid red;
+			}
+
+			/* 平分布局 */
+			body,
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				list-style-type: none;
+			}
+			.outer {
+				width: 200px;
+				display: table;
+			}
+			.outer li {
+				border: 1px solid red;
+				display: table-cell;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+    表格标签
+      table 表格
+      caption 表格标题
+      thead 表格头
+      tbody 表格在主体
+      tr 表格行
+      th 元素定义表头
+      td 元素定义表格单元
+      tfoot
+   -->
+		<!-- border="1" 给每个表格的每个格子，以及边框加上1像素的边框 
+        cellspacing 用来指定每个单元格的间隙，间隙会消除但是边框会叠加
+        cellpadding 单元格内边距
+  -->
+
+		<table border="1" cellspacing="0" cellpadding="20">
+			<!-- 这里cellpadding不生效是因为权重低 -->
+			<caption>
+				这是一张表格
+			</caption>
+			<thead>
+				<tr>
+					<th>星期1</th>
+					<th>星期2</th>
+					<th>星期3</th>
+					<th>星期4</th>
+					<th>星期5</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<!-- rowspan 规定单元格课横跨的行数 -->
+					<!-- colspan 规定单元格课横跨的列数 -->
+					<!-- 横跨后悔多出行列，需要将后面的单元格删除 -->
+					<td rowspan="2" colspan="2">111111</td>
+					<td>22222</td>
+					<td>
+						<!-- vertical-align:middle/bottom/top 水平位置-->
+						<img style="vertical-align: middle;" src="./2.png" alt="" />
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>111</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div id="box">
+			<div id="div1">这是一段话</div>
+		</div>
+
+		<!-- 等高布局 -->
+		<div class="wrap">
+			<div id="left">
+				<img src="./2.png" alt="" />
+			</div>
+			<div id="right">
+				<span
+					>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+					deserunt hic cupiditate excepturi facere provident assumenda
+					repudiandae corrupti dicta beatae corporis, exercitationem, officiis a
+					temporibus? Quam nihil ut corrupti deserunt!</span
+				>
+			</div>
+		</div>
+
+		<!-- 平分布局 -->
+		<ul class="outer">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+</html>

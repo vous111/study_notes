@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			.test {
+				width: 200px;
+				height: 200px;
+				background: red;
+				animation: move 2s linear infinite alternate;
+				border: 1px solid #000;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+			}
+			@keyframes move {
+				0% {
+					/* left: 100px;
+          top: 100px; */
+          width: 200px;
+					background: red;
+				}
+				/* 50% {
+					left: 100px;
+					top: 100px;
+					background: yellow;
+				} */
+				100% {
+          width: 300px;
+					/* left: 200px;
+					top: 100px; */
+					background: blue;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+      keyframes 定义动画帧,即定义动画的每一次运动
+        @keyframes{
+          0%{}
+          50%{}
+          100%{}
+        }
+
+      必要属性
+        animation-name 动画名称(关键帧名称)
+        animation-duration
+      可选属性
+        animation-delay 动画延迟(第一次的延迟)
+        animation-iteration-count 重复次数(默认一次)
+            infinite为无限次
+        animation-direction 
+          alternate 动画直接从上一次停止的位置开始执行
+          normal 动画第二次直接跳到0%的状态开始执行
+          forwards 动画停留在目标点
+
+   -->
+		<div class="test"></div>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    ul{
+      list-style: none;
+    }
+
+    .list1{
+      width: 300px;
+      height: 300px;
+      border:1px solid #000;
+      display: flex;
+
+      /*默认值*/
+      /* flex-direction: row ; */
+      flex-wrap:wrap;
+      /* flex-wrap:wrap-reverse; */
+      /* 复合型 */
+      /* flex-flow: column wrap-reverse; */
+
+      /* justify-content: space-between; */
+      /* align-items: stretch; */
+      /* align-items: baseline; */
+
+      /* align-content: flex-start; */
+      /* align-content: center; */
+      align-content: space-between;
+      /* align-content: stretch; */
+
+    }
+
+    .list1 li{
+      height: 100px;
+      width: 80px;
+      background: red;
+      border:1px solid #000;
+    }
+
+
+    /* 项目属性 */
+    .list2{
+      width: 300px;
+      height: 300px;
+      border:1px solid #000;
+      display: flex;
+      flex-flow: row wrap;
+
+    }
+
+    .list2 li{
+      height: 100px;
+      width: 50px;
+      /* flex-basis: 100px; */
+      background: red;
+      border:1px solid #000;
+    }
+
+    .list2 .li1{
+      /* order: 1; */
+      /* flex-grow:1; */
+      /* flex:1; */
+      /* flex-shrink: 3; */
+      align-self: flex-end;
+    }
+    .list2 .li2{
+      order: 12;
+      /* flex-grow:2; */
+      flex:2
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    flex布局以后，子元素的float、clear和vertical-阿玲属性将失效
+    Flex：容器，它的所有子元素称为项目
+    1.排列方向
+      flex-direction: row/row-reverse/column/column-reverse
+
+      项目排列方向永远和主轴一致
+      默认主轴是水平排列的，项目默认水平显示，不会换行，即使空间不够，也会相应的缩减每个项目的宽度，能够在一行显示
+      反之，高度亦然
+
+      flex-wrap:nowrap/wrap-reverse 项目宽/高度超过容器的宽/高度后，主轴是否换行，默认不换行
+        换行以后产生了间隙
+
+      flex-flow: column wrap-reverse 方向和换行的结合
+
+    
+    2.对齐方式
+      justify-content:flex-start/flex-end/center/space-between(两者之间有空隙)/space-around(两侧有空隙)
+
+      容器的属性
+        align-items:flex-start/flex-end/center/baseline(使项目文字的基准线对齐)/stretch(默认值)
+        属性定义项目在交叉轴上如何对齐
+        
+        align-content:flex-start/flex-end/center/space-between/space-around/stretch(默认值)
+        主轴换行后产生
+        属性定义了多根轴线的对齐方式，如果项目只有一根轴线，该属性不起作用
+        
+        stretch:拉伸值，如果项目没有设置高度，项目高度会被拉伸至容器的高度；如果设置了高度，以设置的高度为准
+
+   -->
+  <!-- <ul class="list1">
+    <li>1</li>
+    <li style="font-size: 30px;">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul> -->
+
+  <!-- 
+    项目属性
+      order 定义项目的排列顺序。数值越小，排列越靠前，默认为0
+      flex-grow 定义项目的放大比例，默认为0，如果所有的项目的flex-grow属性都为1，则他们将等分剩余空间(如果有的话)
+      flex-shrink  定义项目的缩小比例，默认为1；空间不够才能缩小。存在剩余空间，不缩小
+      flex-basis  升缩基点，即初始比例(会忽略宽度)
+      flex  按照剩余空间设置项目的大小(忽略项目原先设置的宽高，按剩余空间比例重新设置大小)
+      align-self:flex-start/flex-end/center/baseline/stretch 允许单个项目有与其他项目不一样的对齐方式
+
+
+      flex-grow 在有剩余空间的情况下设置才生效，在设置的宽高基础之上进行扩大
+      flex  将得到的剩余空间(这个剩余空间是指没设置flex项目剩下的空间)去替代之前设置的宽高
+
+   -->
+  <ul class="list2">
+    <li class="li1">1</li>
+    <!-- <li class="li2">2</li> -->
+    <li>3</li>
+    <li>3</li>
+    <li>3</li>
+  </ul>
+</body>
+</html>

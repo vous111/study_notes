@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			select {
+				border: none;
+				appearance: none;
+				/*在选择框的最右侧中间显示小箭头图片*/
+				background: url("http://ourjs.github.io/static/2015/arrow.png")
+					no-repeat scroll right center transparent;
+				padding-right: 14px;
+      }
+      
+      input, textarea{
+            outline:none;
+            border:none;
+          }
+		</style>
+	</head>
+	<body>
+		<!-- 
+      1.全局去除默认样式
+        body ul ol h1-h6 p dl dd 
+        *{
+          padding:0;
+          margin:0;
+          font-size:14px
+        }
+
+      2.a标签去除默认样式
+        a{
+          text-decoration:none;
+          color:#333;
+        }
+        a:hover,a:visited,a:link,a:active{
+          color:#333
+        }
+      
+      3.li
+        ul, ol{
+          list-style:none
+        }
+
+      4.img
+        img{
+          vertical-align:top; /* 解决换行产生的间隙问题*/
+          border:none
+        }
+      
+        5.select
+          select{
+            border:none;
+            appearance:none;
+            /*在选择框的最右侧中间显示小箭头图片*/
+            background:url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center tracsparent;
+            padding-right:14px;
+          }
+
+        6.input, textarea
+          input, textarea{
+            outline:none; /*高亮显示*/
+            border:none;
+          }
+          textarea{
+            resize:none; /*文本域拉伸*/
+            overflow:auto;  /*滚动条*/
+          }
+
+        7.table
+          table{
+            border-collapse:collapse; /*单元格间隙合并*/
+            border-spacing:0 /*单元格边框空隙*/
+          }
+     -->
+		<select name="" id="">
+			<option value="">11</option>
+			<option value="">22</option>
+			<option value="">33</option>
+    </select>
+    
+	</body>
+</html>

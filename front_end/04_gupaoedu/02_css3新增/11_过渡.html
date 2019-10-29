@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #div1{
+      width: 100px;
+      height: 100px;
+      background:red;
+      position:absolute;
+      left:20px;
+      top:20px;
+      /* transition-property:width;
+      transition-duration: 2s;
+      transition-delay: 0.5s;
+      transition-timing-function: ease-in-out; */
+      transition:2s 0.2s width ease-in-out;
+    }
+
+    #div1:hover{
+      width: 400px;
+      opacity: 0.5;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    transition-porperty 要运动的样式(all/[attr]/none )
+    transition-duration: 2s; 运动时间
+    transition-delay: 0.5s;  延迟时间
+    transition-timing-function: linear; 运动形式
+        ease 逐渐变慢(默认值)
+        linear 匀速
+        ease-in 加速
+        ease-out 减速
+        ease-in-out 先加速后减速
+        cubic-bezier 贝塞尔曲线(x1,y1,x2,y2)
+
+    transition: 过渡时间 延迟时间 
+   -->
+   <div id="div1"></div>
+
+</body>
+</html>

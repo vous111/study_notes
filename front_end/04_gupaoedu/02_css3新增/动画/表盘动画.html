@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style id="css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				list-style: none;
+			}
+			#wrap {
+				width: 200px;
+				height: 200px;
+				border: 2px solid #000;
+				margin: 100px auto 50px;
+				border-radius: 50%;
+				position: relative;
+			}
+
+			#wrap {
+				height: 200px;
+				position: relative;
+			}
+			#wrap ul li {
+				width: 2px;
+				height: 6px;
+				background: #000;
+				position: absolute;
+				left: 99px;
+				top: 0;
+				transform-origin: center 100px;
+			}
+			/* #wrap ul li:nth-of-type(1) {
+				transform: rotate(0);
+			}
+			#wrap ul li:nth-of-type(2) {
+				transform: rotate(6deg);
+			}
+			#wrap ul li:nth-of-type(3) {
+				transform: rotate(12deg);
+			}
+			#wrap ul li:nth-of-type(4) {
+				transform: rotate(18deg);
+			}
+			#wrap ul li:nth-of-type(5) {
+				transform: rotate(24deg);
+			} */
+			#wrap ul li:nth-of-type(5n + 1) {
+				width: 3px;
+				height: 12px;
+			}
+			#wrap ul li:nth-of-type(5n + 1):after {
+				/* content: "1"; */
+				position: absolute;
+				left: 53px;
+				top: -10px;
+				transform: rotate(30deg);
+			}
+			#time {
+				position: absolute;
+				/* height: 200px; */
+				top: 0;
+			}
+			#time * {
+				position: absolute;
+				font-size: 18px;
+				font-family: "楷体";
+				font-weight: bold;
+			}
+			#wrap #time p:nth-of-type(1) {
+				left: 90px;
+				top: 15px;
+			}
+			#wrap #time p:nth-of-type(2) {
+				left: 175px;
+				top: 89px;
+			}
+			#wrap #time p:nth-of-type(3) {
+				left: 95px;
+				top: 165px;
+			}
+			#wrap #time p:nth-of-type(4) {
+				left: 20px;
+				top: 89px;
+			}
+
+			#hour {
+				width: 6px;
+				height: 45px;
+				background: #000;
+				position: absolute;
+				left: 97px;
+				top: 55px;
+				transform-origin: bottom;
+			}
+			#min {
+				width: 4px;
+				height: 65px;
+				background: #999;
+				position: absolute;
+				left: 98px;
+				top: 35px;
+				transform-origin: bottom;
+			}
+			#sec {
+				width: 2px;
+				height: 80px;
+				background: red;
+				position: absolute;
+				left: 99px;
+				top: 20px;
+				transform-origin: bottom;
+			}
+			.icon {
+				width: 20px;
+				height: 20px;
+				background: #000;
+				border-radius: 50%;
+				position: absolute;
+				left: 90px;
+				top: 90px;
+			}
+
+			#box ul {
+				width: 100px;
+				/* height: 40px; */
+				margin: 0 auto;
+				display: flex;
+				/* flex-wrap:nowrap; */
+				align-content: center;
+				/* border: 1px solid #000; */
+			}
+
+			#box li {
+				height: 20px;
+				width: 30px;
+				border: 1px solid #000;
+				flex: 1;
+        text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul id="list">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div id="time">
+				<p>12</p>
+				<p>3</p>
+				<p>6</p>
+				<p>9</p>
+			</div>
+			<div id="hour"></div>
+			<div id="min"></div>
+			<div id="sec"></div>
+			<div class="icon"></div>
+		</div>
+		<div id="box">
+			<ul>
+				<li id="hour2">1</li>
+				<li id="min2">2</li>
+				<li id="sec2">3</li>
+			</ul>
+		</div>
+	</body>
+
+	<script>
+		// 1.获取样式
+		let oCss = document.getElementById("css"); // 获取css样式
+		let oList = document.getElementById("list"); // 获取到刻度
+		let oHour = document.getElementById("hour");
+		let oMin = document.getElementById("min");
+		let oSec = document.getElementById("sec");
+		let oWrap = document.getElementById("wrap");
+		let oWrapAfter = document.defaultView.getComputedStyle(oWrap, ":after");
+		let oLi = "";
+		let sCss = "";
+    let oHour2 = document.getElementById("hour2");
+		let oMin2 = document.getElementById("min2");
+		let oSec2 = document.getElementById("sec2");
+		// console.log(oWrapAfter);
+		// 2.渲染刻度
+		for (let i = 0; i < 60; i++) {
+			sCss +=
+				"#wrap ul li:nth-of-type(" +
+				(i + 1) +
+				"){transform:rotate(" +
+				i * 6 +
+				"deg);}";
+			oLi += "<li></li>";
+		}
+		oList.innerHTML = oLi;
+		oCss.innerHTML += sCss;
+
+		// 3.获取时间
+		function getTime() {
+			let oDate = new Date();
+			let sec = oDate.getSeconds();
+			let min = oDate.getMinutes() + sec / 60;
+			let hour = oDate.getHours() + min / 60;
+			oSec.style.transform = "rotate(" + sec * 6 + "deg)";
+			oMin.style.transform = "rotate(" + min * 6 + "deg)";
+			oHour.style.transform = "rotate(" + hour * 30 + "deg)";
+
+      oHour2.innerHTML=AddZero(oDate.getHours())
+      oMin2.innerHTML=AddZero(oDate.getMinutes())
+      oSec2.innerHTML=AddZero(oDate.getSeconds())
+		}
+		getTime();
+		// setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达
+		setInterval(getTime, 1000);
+
+    function AddZero(n){
+      console.log(n.toString());
+      return ("00" + n).substr(n.toString().length)
+    }
+	</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="" media="all and (min-width:400px)">
+  <link rel="stylesheet" href="" media="all and (min-width:600px)">
+  <link rel="stylesheet" href="" media="screen and (min-width:768px) and (max-width:991px)">
+
+  <title>Document</title>
+  <style>
+    @media screen and (min-width: 1000px) and (max-width: 1100px) {
+      div{
+        width: 100px;
+        height: 100px;
+        background:red;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      div{
+        width: 100px;
+        height: 100px;
+        background:blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    @media媒体类型
+      all 所有媒体
+      Print 打印 预览
+      screen 用于电脑屏幕，平板电脑，智能手机等
+      speech '听觉'类似的媒体类型
+
+      @media only 设备类型
+        只有在特定的某种设备上识别
+
+      @media 设备类型 and (min-width:1200px)
+        800以下  max-width:1000px
+        1000以上  min-width:1000px
+
+      @media(orientation:portrait)
+        指定输出设备中的页面可见区域高度大于或等于宽度
+      @media(orientation:landscape)
+        除portrait值情况外，都是landscap
+   -->
+  <div>
+    123
+  </div>
+</body>
+</html>

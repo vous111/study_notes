@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      background: #aaa;
+      border:1px solid red
+    }
+    span{
+      background: red;
+      width: 100px;
+      height: 100px;
+    }
+
+    a{
+      width: 50px;
+      height: 50px;
+      display: block;
+      background: blue;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    快标签
+      1.默认独占一行，继承父级的宽度
+      2.换行不会被解析
+      3.支持所有css命令
+      div p h1-h6 ul ol li dl dd dt table nav header footer artical aside section...
+
+    内嵌标签
+      1.宽度由内容撑开
+      2.不支持宽高的设置
+      3.换行不会被解析
+      4.不支持margin的上下设置
+      5.水平排列
+      span a em strong i label
+
+    内嵌块标签
+      1.和其他同类元素在一行显示
+      2.支持宽高的设置
+      3.换行会被解析
+      img input select 
+   -->
+   <div>这是一个div</div>
+   <div>这是一个div</div>
+   <span>区分的样式的标签</span>
+   <span>区分的样式的标签</span>
+   <img src="logo.png" alt="图片"> 
+   <img src="logo.png" alt="图片">
+
+   <!-- 
+     比如要用到某些元素 a 但是又希望它以块元素的方式显示
+     display是将标签转换为页面中显示的类型，不会改变标签的本质
+          block 块
+          inline 内嵌
+          inline-block 内嵌块
+          none 从文档中消失
+    -->
+    <a href="http://www.baidu.com">百度</a>
+    <p style="display: inline-block;background: #eee;">这是一个p元素</p>
+    <p style="display: inline;background: #eee;">这是一个p元素</p>
+</body>
+</html>

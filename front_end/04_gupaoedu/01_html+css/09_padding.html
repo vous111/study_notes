@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 
+      padding: 10px 上下左右10px
+      padding: 10px 20px 上下10px 左右20px
+      padding: 10px 20px 30px 上10 左右20px 下30
+      padding: 10px 20px 30px 40px 上右下左
+
+      元素的可视区宽度 = width+padding(左右)+border(左右)
+      元素的可视区高度 = height+padding(上下)+border(左右)
+    */
+    #wrap{
+      width: 300px;
+      height: 300px;
+      border:1px solid red;
+      background: #eee;
+    }
+    .div1{
+      width: 50px;
+      height: 50px;
+      border: 1px solid blue;
+      padding: 10px;
+    }
+
+    .div2{
+      width: 200px;
+      height: 200px;
+      padding: 40px;
+      background: #ddd url('./2.png') no-repeat;
+      border: 1px solid red;
+    }
+
+    /* 已图换字：能够被搜索引擎搜到，又能使它按照图片显示 */
+    h1{
+      margin:0;
+      padding: 0;
+      background:url('./3.png') no-repeat;
+      width: 179px;
+      height: 0;
+      padding-top:101px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="div1">
+    </div>
+    padding影响的只是内部的盒子，对外部的盒子没有影响
+  </div>
+
+  <div class="div2">
+    padding区域不可以填充文字，但是可以填充背景
+  </div>
+
+  <h1>淘宝网</h1>
+</body>
+</html>

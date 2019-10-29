@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      background: rgb(70, 38, 38);
+    }
+    div{
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+
+    p{
+      width: 0;
+      height: 0;
+      border:100px solid red;
+      /* 利用边框四边的特性做一个三角形  transparent:透明*/
+      border-top-color:#000;
+      border-bottom-color:transparent;
+      border-right-color:transparent;
+      border-left-color:transparent;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div>border</div> -->
+  <p></p>
+</body>
+</html>
