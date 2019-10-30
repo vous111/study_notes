@@ -28,13 +28,13 @@
       /* 复合型 */
       /* flex-flow: column wrap-reverse; */
 
-      /* justify-content: space-between; */
+      justify-content: space-between;
       /* align-items: stretch; */
       /* align-items: baseline; */
 
       /* align-content: flex-start; */
       /* align-content: center; */
-      align-content: space-between;
+      /* align-content: space-between; */
       /* align-content: stretch; */
 
     }
@@ -54,7 +54,7 @@
       border:1px solid #000;
       display: flex;
       flex-flow: row wrap;
-
+      align-items: center;
     }
 
     .list2 li{
@@ -75,7 +75,8 @@
     .list2 .li2{
       order: 12;
       /* flex-grow:2; */
-      flex:2
+      /* flex:2 */
+
     }
   </style>
 </head>
@@ -97,11 +98,12 @@
 
     
     2.对齐方式
-      justify-content:flex-start/flex-end/center/space-between(两者之间有空隙)/space-around(两侧有空隙)
+      主轴对齐方式
+        justify-content:flex-start/flex-end/center/space-between(两者之间有空隙)/space-around(两侧有空隙)
 
       容器的属性
-        align-items:flex-start/flex-end/center/baseline(使项目文字的基准线对齐)/stretch(默认值)
         属性定义项目在交叉轴上如何对齐
+          align-items:flex-start/flex-end/center/baseline(使项目文字的基准线对齐)/stretch(默认值)
         
         align-content:flex-start/flex-end/center/space-between/space-around/stretch(默认值)
         主轴换行后产生
@@ -134,7 +136,7 @@
    -->
   <ul class="list2">
     <li class="li1">1</li>
-    <!-- <li class="li2">2</li> -->
+    <li class="li2">2</li>
     <li>3</li>
     <li>3</li>
     <li>3</li>
